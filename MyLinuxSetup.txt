@@ -1,0 +1,11 @@
+# GNOME extensions
+Dash to Panel
+Extended Gestures 
+
+# Menu for copying filepath in Nautilus GUI
+https://github.com/ronen25/nautilus-copypath
+
+# For C++ dev
+libx11-dev
+ 
+
