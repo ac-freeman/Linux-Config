@@ -14,8 +14,10 @@ cp nautilus-copypath.py ~/.local/share/nautilus-python/extensions/
 nautilus -q && nautilus &
 
 # For C++ dev
-##libx11-dev
+## libx11-dev
 sudo apt-get install -y libx11-dev
+## libpng
+sudo apt-get install libpng-dev
  
 # Matlab launcher
 #sudo apt install matlab-support
