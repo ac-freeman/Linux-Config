@@ -49,3 +49,15 @@ sudo snap install gimp
 
 # Blender
 sudo snap install blender --classic
+
+# Github authentication
+ssh-keygen -t rsa -b 4096 -C [INSERT GITHUB EMAIL HERE]
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+sudo apt-get install xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub
+## Then add to GitHub SSH keys list
+## Test with:
+ssh -T git@github.com
+
+
