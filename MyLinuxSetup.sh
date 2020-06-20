@@ -62,4 +62,7 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 ## Test with:
 ssh -T git@github.com
 
+# FFMPEG
+sudo apt  install ffmpeg
+
 
