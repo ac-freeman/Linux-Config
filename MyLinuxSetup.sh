@@ -40,6 +40,10 @@ sudo apt upgrade
 #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 #sudo dpkg -i google-chrome-stable_current_amd64.deb
 
+# Dropbox
+wget https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb
+sudo dpkg -i download?dl=packages%2Fubuntu%2Fdropbox_2020.03.04_amd64.deb
+
 # VSCode
 sudo snap install --classic code
 
