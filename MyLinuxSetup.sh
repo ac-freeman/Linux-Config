@@ -69,4 +69,7 @@ ssh -T git@github.com
 # FFMPEG
 sudo apt  install ffmpeg
 
-
+# NPM
+sudo apt install curl
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew install npm
