@@ -73,3 +73,6 @@ sudo apt  install ffmpeg
 sudo apt install curl
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew install npm
+
+# Visual feedback for password characters
+## https://vitux.com/how-to-make-password-asterisks-visible-in-ubuntu-terminal/
