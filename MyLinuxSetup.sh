@@ -76,3 +76,10 @@ brew install npm
 
 # Visual feedback for password characters
 ## https://vitux.com/how-to-make-password-asterisks-visible-in-ubuntu-terminal/
+
+# Armadillo C++ library
+sudo apt install libopenblas-dev
+sudo apt install libpack-dev
+sudo apt install libarpack2-dev
+sudo apt install libsuperlu-dev
+sudo apt install libarmadillo-dev
