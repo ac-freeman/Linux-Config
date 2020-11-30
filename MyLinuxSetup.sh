@@ -83,3 +83,4 @@ sudo apt install libpack-dev
 sudo apt install libarpack2-dev
 sudo apt install libsuperlu-dev
 sudo apt install libarmadillo-dev
+sudo apt install libglew-dev
