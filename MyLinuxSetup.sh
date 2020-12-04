@@ -83,4 +83,16 @@ sudo apt install libpack-dev
 sudo apt install libarpack2-dev
 sudo apt install libsuperlu-dev
 sudo apt install libarmadillo-dev
+
+# OpenGL
 sudo apt install libglew-dev
+
+# OpenCV
+sudo apt update && sudo apt install -y cmake g++ wget unzip
+wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
+unzip opencv.zip
+mkdir -p build && cd build
+cmake  ../opencv-master
+cmake --build .
+
+
