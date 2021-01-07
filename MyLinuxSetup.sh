@@ -88,12 +88,14 @@ sudo apt install libarmadillo-dev
 sudo apt install libglew-dev
 
 # OpenCV
-sudo apt update && sudo apt install -y cmake g++ wget unzip
-wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
-unzip opencv.zip
-mkdir -p build && cd build
-cmake  ../opencv-master
-cmake --build .
+# (from source)
+# sudo apt update && sudo apt install -y cmake g++ wget unzip
+# wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
+# unzip opencv.zip
+# mkdir -p build && cd build
+# cmake  ../opencv-master
+# cmake --build .
+sudo apt install libopencv-dev
 
 # ImageMagick
 sudo apt-get install build-essential
