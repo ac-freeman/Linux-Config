@@ -95,4 +95,15 @@ mkdir -p build && cd build
 cmake  ../opencv-master
 cmake --build .
 
+# ImageMagick
+sudo apt-get install build-essential
+wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+tar xvzf ImageMagick.tar.gz
+cd ImageMagick-7.0.10-22
+./configure 
+make
+sudo make install 
+sudo ldconfig /usr/local/lib
+## Test with:
+magick -version
 
