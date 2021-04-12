@@ -96,6 +96,8 @@ sudo apt install libglew-dev
 # cmake  ../opencv-master
 # cmake --build .
 sudo apt install libopencv-dev
+# Opencv instructions with contrib modules
+# https://linuxize.com/post/how-to-install-opencv-on-ubuntu-18-04/
 
 # ImageMagick
 sudo apt-get install build-essential
