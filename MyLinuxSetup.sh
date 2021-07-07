@@ -119,5 +119,5 @@ magick -version
 #https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker
 
 
-# easy keyboard shortcuts
+# Easy keyboard shortcuts (Config in ~/.xbindkeysrc)
 sudo apt-get install xbindkeys
