@@ -111,3 +111,13 @@ sudo ldconfig /usr/local/lib
 ## Test with:
 magick -version
 
+
+# Docker engine
+#https://docs.docker.com/engine/install/ubuntu/
+
+# Nvidia Docker
+#https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker
+
+
+# easy keyboard shortcuts
+sudo apt-get install xbindkeys
