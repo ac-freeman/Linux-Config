@@ -22,20 +22,6 @@ sudo apt-get install libpng-dev
 # Matlab launcher
 #sudo apt install matlab-support
 
-#NVIDIA Cuda
-#[Follow instructions at https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&target_distro=Ubuntu&target_version=1804&target_type=deblocal]
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
-sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
-sudo apt-get update
-sudo apt-get -y install cuda
-## May need to do the following:
-### sudo dpkg -i --force-all /var/cache/apt/archives/libnvidia-compute-450_450.36.06-0ubuntu1_amd64.deb
-### sudo apt install libnvidia-compute-450 
-sudo apt update
-sudo apt upgrade
-
 # Google Chrome
 #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 #sudo dpkg -i google-chrome-stable_current_amd64.deb
@@ -67,6 +53,8 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 ssh -T git@github.com
 
 # FFMPEG
+sudo apt-get install libgtk-3-dev
+sudo apt-get install libavcodec-dev libavformat-dev libavutil-dev libswscale-dev
 sudo apt  install ffmpeg
 
 # NPM
@@ -85,19 +73,9 @@ sudo apt install libsuperlu-dev
 sudo apt install libarmadillo-dev
 
 # OpenGL
-sudo apt install libglew-dev
+#sudo apt install libglew-dev
 
-# OpenCV
-# (from source)
-# sudo apt update && sudo apt install -y cmake g++ wget unzip
-# wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
-# unzip opencv.zip
-# mkdir -p build && cd build
-# cmake  ../opencv-master
-# cmake --build .
-sudo apt install libopencv-dev
-# Opencv instructions with contrib modules
-# https://linuxize.com/post/how-to-install-opencv-on-ubuntu-18-04/
+
 
 # ImageMagick
 sudo apt-get install build-essential
@@ -121,3 +99,48 @@ magick -version
 
 # Easy keyboard shortcuts (Config in ~/.xbindkeysrc)
 sudo apt-get install xbindkeys
+xbindkeys --defualts > /home/andrew/.xbindkeysrc
+
+# CLion
+sudo snap install clion --classic
+
+# Spotify
+snap install spotify
+
+# Make Programs directory
+cd ~
+mkdir Programs && cd Programs
+
+
+
+
+
+# OpenCV
+# (from source)
+# Install minimal prerequisites (Ubuntu 18.04 as reference)
+mkdir OpenCV && cd OpenCV
+sudo apt update && sudo apt install -y cmake g++ wget unzip
+# Download and unpack sources
+wget -O opencv.zip https://github.com/opencv/opencv/archive/master.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/master.zip
+unzip opencv.zip
+unzip opencv_contrib.zip
+# Create build directory and switch into it
+mkdir -p build && cd build
+# Configure
+# cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-master/modules ../opencv-master
+cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-master/modules -DWITH_GTK=ON -DWITH_GTK_2_X=ON -DWITH_FFMPEG=1 ../opencv-master
+# Build
+cmake --build .
+
+# CUDA 11.2
+cd ~/Programs
+wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda_11.2.2_460.32.03_linux.run
+sudo sh cuda_11.2.2_460.32.03_linux.run
+# UNCHECK THE DRIVER INSTALL. Need to manually select a TESTED proprietary driver from "Additional drivers" first
+
+# sudo nano ~/.bashrc
+### Add the following at the end of `~/.bashrc`
+# export PATH=/usr/local/cuda-11.2/bin${PATH:+:${PATH}}
+# export LD_LIBRARY_PATH=/usr/local/cuda-11.2/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+# export CUDA_HOME=/usr/local/cuda 
