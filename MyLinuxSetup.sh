@@ -7,10 +7,10 @@ sudo apt install gnome-shell-extensions
 ##https://github.com/ronen25/nautilus-copypath
 sudo apt-get install python-nautilus python3-gi
 git clone https://github.com/ronen25/nautilus-copypath
-mkdir ~/.local/share/nautilus-python
-mkdir ~/.local/share/nautilus-python/extensions
+mkdir $HOME/.local/share/nautilus-python
+mkdir $HOME/.local/share/nautilus-python/extensions
 cd nautilus-copypath
-cp nautilus-copypath.py ~/.local/share/nautilus-python/extensions/
+cp nautilus-copypath.py $HOME/.local/share/nautilus-python/extensions/
 nautilus -q && nautilus &
 
 # For C++ dev
@@ -99,7 +99,7 @@ magick -version
 
 # Easy keyboard shortcuts (Config in ~/.xbindkeysrc)
 sudo apt-get install xbindkeys
-xbindkeys --defualts > /home/andrew/.xbindkeysrc
+xbindkeys --defualts > $HOME/.xbindkeysrc
 
 # CLion
 sudo snap install clion --classic
@@ -108,7 +108,7 @@ sudo snap install clion --classic
 snap install spotify
 
 # Make Programs directory
-cd ~
+cd $HOME
 mkdir Programs && cd Programs
 
 
@@ -134,7 +134,7 @@ cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-master/modules -DWITH_GTK=ON
 cmake --build .
 
 # CUDA 11.2
-cd ~/Programs
+cd $HOME/Programs
 wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda_11.2.2_460.32.03_linux.run
 sudo sh cuda_11.2.2_460.32.03_linux.run
 # UNCHECK THE DRIVER INSTALL. Need to manually select a TESTED proprietary driver from "Additional drivers" first
