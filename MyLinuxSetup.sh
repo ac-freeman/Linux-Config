@@ -18,6 +18,9 @@ nautilus -q && nautilus &
 sudo apt-get install -y libx11-dev
 ## libpng
 sudo apt-get install libpng-dev
+
+# canberra-gtk
+sudo apt-get install libcanberra-gtk-module
  
 # Matlab launcher
 #sudo apt install matlab-support
@@ -38,6 +41,9 @@ sudo snap install vlc
 
 # GIMP
 sudo snap install gimp
+
+# Slack
+sudo snap install slack --classic
 
 # Blender
 sudo snap install blender --classic
@@ -104,6 +110,12 @@ xbindkeys --defualts > $HOME/.xbindkeysrc
 # CLion
 sudo snap install clion --classic
 
+# PyCharm
+sudo snap install pycharm-professional --classic
+
+# JetBrains VS Code keymap
+# https://plugins.jetbrains.com/plugin/12062-vscode-keymap
+
 # Spotify
 snap install spotify
 
@@ -122,8 +134,18 @@ gem install jekyll bundler
 cd $HOME
 mkdir Programs && cd Programs
 
+# CUDA 11.2
+wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda_11.2.2_460.32.03_linux.run
+sudo sh cuda_11.2.2_460.32.03_linux.run
+# UNCHECK THE DRIVER INSTALL. Need to manually select a TESTED proprietary driver from "Additional drivers" first
+
 # OpenCV
 # (from source)
+# CUDA 11.2
+cd $HOME/Programs
+wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda_11.2.2_460.32.03_linux.run
+sudo sh cuda_11.2.2_460.32.03_linux.run
+# UNCHECK THE DRIVER INSTALL. Need to manually select a TESTED proprietary driver from "Additional drivers" first
 # Install minimal prerequisites (Ubuntu 18.04 as reference)
 mkdir OpenCV && cd OpenCV
 sudo apt update && sudo apt install -y cmake g++ wget unzip
@@ -135,16 +157,15 @@ unzip opencv_contrib.zip
 # Create build directory and switch into it
 mkdir -p build && cd build
 # Configure
-# cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-master/modules ../opencv-master
-cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-master/modules -DWITH_GTK=ON -DWITH_GTK_2_X=ON -DWITH_FFMPEG=1 ../opencv-master
+cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-master/modules ../opencv-master
+# cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-master/modules -DWITH_GTK=ON -DWITH_GTK_2_X=ON -DWITH_FFMPEG=1 -D OPENCV_ENABLE_NONFREE=ON -D WITH_CUDA=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 ../opencv-master
+#Work with CUDA, but disable some things: 
+# cmake -D CMAKE_BUILD_TYPE=RELEASE -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-master/modules -DWITH_GTK=ON -DWITH_GTK_2_X=ON -DWITH_FFMPEG=1 -D WITH_CUDA=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 -D WITH_CUBLAS=1 -DOPENCV_ENABLE_NONFREE=ON -DWITH_GSTREAMER=ON -DOPENCV_GENERATE_PKGCONFIG=ON -DBUILD_TESTS=OFF -DBUILD_opencv_tracking=OFF ../opencv-master
+
 # Build
 cmake --build .
 
-# CUDA 11.2
-cd $HOME/Programs
-wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda_11.2.2_460.32.03_linux.run
-sudo sh cuda_11.2.2_460.32.03_linux.run
-# UNCHECK THE DRIVER INSTALL. Need to manually select a TESTED proprietary driver from "Additional drivers" first
+
 
 # sudo nano ~/.bashrc
 ### Add the following at the end of `~/.bashrc`
